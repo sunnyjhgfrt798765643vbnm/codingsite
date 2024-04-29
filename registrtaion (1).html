@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Registration Form</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <!-- Sign In Form -->
+        <div class="card">
+          <div class="card-header">
+            Sign In
+          </div>
+          <div class="card-body">
+            <form id="signInForm" onsubmit="return validateSignInForm()">
+              <div class="form-group">
+                <label for="signInUsername">Username</label>
+                <input type="text" class="form-control" id="signInUsername" placeholder="Enter username">
+              </div>
+              <div class="form-group">
+                <label for="signInPassword">Password</label>
+                <input type="password" class="form-control" id="signInPassword" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var signInUsername = "";
+    var signInPassword = "";
+
+    function validateSignInForm() {
+      signInUsername = document.getElementById('signInUsername').value;
+      signInPassword = document.getElementById('signInPassword').value;
+
+      if (signInUsername.length <= 10) {
+        alert("Sign In username must be larger than 10 characters.");
+        return false;
+      }
+
+      if (signInPassword.length <= 10 || !/[0-9]/.test(signInPassword) || !/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(signInPassword) || !/[A-Z]/.test(signInPassword)) {
+        alert("Sign In password must be larger than 10 characters and contain at least one number, one special character, and one uppercase letter.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>
+
+
+</body>
+</html>
